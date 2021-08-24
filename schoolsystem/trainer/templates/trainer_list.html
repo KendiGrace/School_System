@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #table {
+        width: 100%;
+      }
+      #table td,
+      #table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      #table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      #table tr:hover {
+        background-color: #ddd;
+      }
+      #table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: purple;
+        color: white;
+        font-family: sans-serif;
+      }
+    </style>
+    <table id="table">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone_number</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Profession</th>
+        <th>Courses</th>
+        <th>ID_Number</th>
+        <th>Image</th>
+        <th>Bank Account</th>
+        <th>Resume</th>
+        <th>Country</th>
+        <th>Salary</th>
+        <!-- <th>Lessons</th> -->
+        <th>Gender</th>
+      </tr>
+      {% for trainer in trainers%}
+      <tr>
+        <td>{{trainer.first_name}}</td>
+        <td>{{trainer.last_name}}</td>
+        <td>{{trainer.phone_number}}</td>
+        <td>{{trainer.email}}</td>
+        <td>{{trainer.company}}</td>
+        <td>{{trainer.profession}}</td>
+        <td>{{trainer.courses}}</td>
+        <td>{{trainer.id_number}}</td>
+        <td>{{trainer.image}}</td>
+        <td>{{trainer.bank_account}}</td>
+        <td>{{trainer.resume}}</td>
+        <td>{{trainer.country}}</td>
+        <td>{{trainer.salary}}</td>
+        <!-- <td>{{trainer.lessons}}</td> -->
+        <td>{{trainer.gender}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>
+   

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #table {
+        width: 100%;
+      }
+      #table td,
+      #table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      #table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      #table tr:hover {
+        background-color: #ddd;
+      }
+      #table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: purple;
+        color: white;
+        font-family: sans-serif;
+      }
+    </style>
+    <table id="table">
+      <tr>
+        <th>Course Name</th>
+        <th>Course Code</th>
+        <th>Course Description</th>
+        <th>Course Trainer</th>
+        <th>Course Syllabus</th>
+        <th>Course Notes</th>
+        <th>Course Duration</th>
+    
+      </tr>
+      {% for course in courses%}
+      <tr>
+        <td>{{course.course_name}}</td>
+        <td>{{course.course_code}}</td>
+        <td>{{course.course_description}}</td>
+        <td>{{course.course_trainer}}</td>
+        <td>{{course.course_syllabus}}</td>
+        <td>{{course.course_notes}}</td>
+        <td>{{course.course_duration}}</td>
+
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>
+   

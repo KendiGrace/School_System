@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #table {
+        width: 100%;
+      }
+      #table td,
+      #table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      #table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      #table tr:hover {
+        background-color: #ddd;
+      }
+      #table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: purple;
+        color: white;
+        font-family: sans-serif;
+      }
+    </style>
+    <table id="table">
+      <tr>
+        <th>event_name</th>
+        <th>event_date</th>
+        <th>event_organizer</th>
+        <th>event_agenda</th>
+        <th>event_duration</th>
+        <th>event_venue</th>
+        <th>event_attendees</th>
+        
+      </tr>
+      {% for event_calendar in events_calendars%}
+      <tr>
+        <td>{{event_calendar.event_name}}</td>
+        <td>{{event_calendar.event_date}}</td>
+        <td>{{event_calendar.event_organizer}}</td>
+        <td>{{event_calendar.event_agenda}}</td>
+        <td>{{event_calendar.event_duration}}</td>
+        <td>{{event_calendar.event_venue}}</td>
+        <td>{{event_calendar.event_attendees}}</td>
+    
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>

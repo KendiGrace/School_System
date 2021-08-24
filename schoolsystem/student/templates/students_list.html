@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #table {
+        width: 100%;
+      }
+      #table td,
+      #table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      #table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      #table tr:hover {
+        background-color: #ddd;
+      }
+      #table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: purple;
+        color: white;
+        font-family: sans-serif;
+      }
+    </style>
+   
+   
+    <table id="table">
+      <tr>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>age</th>
+        <th>date_of_birth</th>
+        <th>phone_number</th>
+        <th>email</th>
+        <th>national_id</th>
+        <th>country</th>
+        <th>gender</th>
+        <th>guardian</th>
+        <th>class_name</th>
+        <th>room</th>
+        <th>big_sister</th>
+        <th>mentors_name</th>
+        <th>laptop_number</th>
+        <!-- <th>Medical Report</th>
+        <th>Image</th>
+        <th>Passport</th> -->
+      </tr>
+      {%for student in students%}
+      <tr>
+        <td>{{student.first_name}}</td>
+        <td>{{student.last_name}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.date_of_birth}}</td>
+        <td>{{student.phone_number}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.national_id}}</td>
+        <td>{{student.country}}</td>
+        <td>{{student.gender}}</td>
+        <td>{{student.guardian}}</td>
+        <td>{{student.class_name}}</td>
+        <td>{{student.room}}</td>
+        <td>{{student.big_sister}}</td>
+        <td>{{student.mentors_name}}</td>
+        <td>{{student.laptop_number}}</td>
+        <!-- <td>{{student.medical_report}}</td>
+        <td>{{student.image}}</td>
+        <td>{{student.passport}}</td> -->
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>
