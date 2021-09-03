@@ -2,6 +2,7 @@ from django.db import models
 from django.http import request
 
 class Trainer(models.Model):
+    image=models.ImageField(upload_to="images")
     first_name = models.CharField(max_length=12)
     last_name = models.CharField(max_length=10)
     phone_number = models.CharField(max_length=12)
@@ -10,7 +11,6 @@ class Trainer(models.Model):
     profession = models.CharField(max_length=20)
     courses = models.CharField(max_length=20)
     id_number = models.CharField(max_length=12)
-    image = models.ImageField(upload_to="images")
     bank_account = models.CharField(max_length=16)
     resume = models.FileField()
     country = models.CharField(max_length=12)

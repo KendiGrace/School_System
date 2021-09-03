@@ -7,7 +7,11 @@
     <title>Document</title>
   </head>
   <body>
+   
     <style>
+      body{
+        background-color: rgb(238, 232, 238);
+      }
       #table {
         width: 100%;
       }
@@ -30,9 +34,48 @@
         color: white;
         font-family: sans-serif;
       }
+       img{
+        width: 70px;
+        height: 50px;
+      } 
+       .image {
+        width: 300px;
+        height: 100px;
+        margin-left: 450px;
+       
+      }
+   
+    h1 {
+        color: rgb(49, 7, 49);
+        text-align: center;
+        font-size: 25px;
+
+    }
+    .contacts {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: bolder;
+    color: purple;
+    }
     </style>
+
+    <img class="image"
+    src="https://d1qmdf3vop2l07.cloudfront.net/can-dotterel.cloudvent.net/hash-store/0c9da6ea6289ffb759cd3b6a36254675.png"
+  />
+  <div class="contacts">
+    <p> email : info@akirachix.com </p>
+    <p> P.O BOX 22009- 00100 </p>
+    <p> 616 Korongo RD off Ndege Road</p>
+    <p>Nairobi, Kenya</p>
+    <hr>
+  </div>
+      <h1>Trainers List</h1>
+  
+
+
     <table id="table">
       <tr>
+        <th>Image</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Phone_number</th>
@@ -41,7 +84,6 @@
         <th>Profession</th>
         <th>Courses</th>
         <th>ID_Number</th>
-        <th>Image</th>
         <th>Bank Account</th>
         <th>Resume</th>
         <th>Country</th>
@@ -51,6 +93,7 @@
       </tr>
       {% for trainer in trainers%}
       <tr>
+        <td><img src=" {{trainer.image.url}}" /></td>
         <td>{{trainer.first_name}}</td>
         <td>{{trainer.last_name}}</td>
         <td>{{trainer.phone_number}}</td>
@@ -59,7 +102,6 @@
         <td>{{trainer.profession}}</td>
         <td>{{trainer.courses}}</td>
         <td>{{trainer.id_number}}</td>
-        <td>{{trainer.image}}</td>
         <td>{{trainer.bank_account}}</td>
         <td>{{trainer.resume}}</td>
         <td>{{trainer.country}}</td>
@@ -71,4 +113,3 @@
     </table>
   </body>
 </html>
-   
