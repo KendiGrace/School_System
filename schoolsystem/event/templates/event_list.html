@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Event_list</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<table>
+<tr>
+<th>event_name</th>
+<th>event_date</th>
+<th>event_planner</th>
+<th>event_participant</th>
+<th>event_duration</th>
+<th>event_approved_by</th>
+<th>event_id</th>
+</tr>
+<tr>
+    {% for event in events %}
+<td>{{events.event_name}}</td>
+<td>{{events.event_date}}</td>
+<td>{{events.event_planner}}</td>
+<td>{{events.event_participant}}</td>
+<td>{{events.event_duration}}</td>
+<td>{{events.event_approved_by}}</td>
+<td>{{events.event_id}}</td>
+</tr>
+{% endfor %}
+</table>
+<style>
+    body{
+        background-color: white;
+      }
+  table{
+      width: 820px;
+      margin: auto;
+      text-align: center;
+      table-layout:auto;
+  }
+  table,tr,th,td{
+
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: black;
+      border: 1px solid rgb(6, 61, 99);
+      border-collapse: collapse;
+      font-size: 15px;
+      font-family:'sans-serif';
+      background: linear-gradient(rgb(179, 179, 241));
+
+  }
+
+
+  h1{
+      text-align: center;
+      color: rgb(59, 126, 126);
+      padding-top: 10%;
+  }
+</style>
+{% block content %}
+{{ calendar }}
+{% endblock %}
+
+
+
+</body>
+</html> 

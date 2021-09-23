@@ -1,11 +1,11 @@
 from django.forms import ModelForm, DateInput
 from django.forms.widgets import TextInput, Textarea
-from event.models import Events
+from event.models import Event
 
 
-class EventForm(ModelForm):
+class EventRegistrationForm(ModelForm):
     class Meta:
-        model = Events
+        model = Event
         # datetime-local is a HTML5 input type, format to make date time show on fields
         widgets = {
             'start_time': DateInput(attrs={
@@ -39,7 +39,7 @@ class EventForm(ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(EventForm, self).__init__(*args, **kwargs)
+        super(EventRegistrationForm, self).__init__(*args, **kwargs)
         # input_formats parses HTML5 datetime-local input to datetime field
         self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',)
         self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)

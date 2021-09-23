@@ -1,9 +1,18 @@
 from django.db import models
-class Events(models.Model):
-    title = models.CharField(max_length=200,blank=True,null=True)
-    description = models.TextField(blank=True,null=True)
-    start_time = models.DateTimeField(blank=True,null=True)
-    end_time = models.DateTimeField(blank=True,null=True)
-    venue=models.CharField(max_length=12,default="mercy",null=True,blank=True)
+
 # Create your models here.
+class Event(models.Model):
+    event_name=models.CharField(max_length=12,null=True)
+    event_date=models.DateField(null=True)
+    event_planner=models.CharField(max_length=12,null=True)
+    event_duration=models.CharField(max_length=12,null=True)
+    event_participant=models.PositiveSmallIntegerField(null=True)
+    event_approved_by=models.CharField(max_length=13,null=True)
+    event_id=models.CharField(max_length=13,null=True)
+
+    title=models.CharField(max_length=100)
+    description=models.TextField()
+    start_time=models.DateField()
+    end_time=models.DateField()
+
 

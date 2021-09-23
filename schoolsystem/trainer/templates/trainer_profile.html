@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <style>
+      body{
+        background-color: rgb(213, 198, 213);
+      }
+    .profile{
+        background-color: purple;
+        padding: 100px;
+        color: white;  
+        width: 30%;
+        margin-left: 450px;
+        border-radius: 20px;
+        height: fit-content;
+    }
+    .trainer{
+     border-radius: 150px;
+     margin-left: 120px;
+     width: 50%;
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+    .content{
+        font-size: larger;
+    }
+  </style>
+  <h1>-Our Team-</h1>
+       
+    <div class="profile">
+        <td ><img class="trainer" src=" {{trainer.image.url}}" /></td>
+
+    <div class="content">
+    <h4> Name: {{trainer.first_name}} {{trainer.last_name}}</h4>
+    <h4>Phone Number: {{trainer.phone_number}}</h4>
+    <h4>Email: {{trainer.email}}</h4>
+    <h4>Profession: {{trainer.profession}}</h4>
+    <h4>Company: {{trainer.company}}</h4>
+</div>
+
+</div>
+       
+   
+
+</body>
+</html>

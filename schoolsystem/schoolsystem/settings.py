@@ -1,3 +1,5 @@
+import os
+import django_heroku
 """
 Django settings for schoolsystem project.
 
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'courses',
     'event',
     'core',
+    'api',
+    'rest_framework',
 
 ]
 
@@ -135,6 +139,7 @@ STATICFILES_DIR = [
     BASE_DIR/"static"
 ]
 
+
 MEDIA_URL = "/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
@@ -143,3 +148,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = "(media)"
+
+django_heroku.settings(locals())

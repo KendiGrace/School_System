@@ -1,55 +1,62 @@
+from django.http.response import HttpResponseRedirect
+from .forms import EventRegistrationForm
+from django.shortcuts import redirect, render,get_object_or_404
+from datetime import date, datetime
 from django.shortcuts import render
-from datetime import datetime, timedelta, date
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from.forms import EventRegistrationForm
+from django.shortcuts import render
+from.models import Event
+def register_event(request):
+    form=EventRegistrationForm()
+    return render(request,"register_event.html",{
+        "form":form,
+        "name":"Anastasia",
+    })
+def register_event(request):
+    if request.method=="POST":
+        form=EventRegistrationForm(request.POST,request.FILES)
 from django.views import generic
-from django.urls import reverse
 from django.utils.safestring import mark_safe
-import calendar
+from django.urls import reverse
 from .models import *
 from .utils import Calendar
-from .forms import EventForm
-# def index(request):
-#     return HttpResponse('hello')
+# Create your views here.
+
+
 class CalendarView(generic.ListView):
-    model = Events
+    model = Event
     template_name = 'event_list.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
-        html_cal = cal.formatmonth(withyear=True)
+        d = get_date(self.request.GET.get('day', None))
+        event = Calendar(d.year, d.month)
+        html_cal = event.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
-        context['prev_month'] = prev_month(d)
-        context['next_month'] = next_month(d)
         return context
-def get_date(req_month):
-    if req_month:
-        year, month = (int(x) for x in req_month.split('-'))
+def get_date(req_day):
+    if req_day:
+        year, month = (int(x) for x in req_day.split('-'))
         return date(year, month, day=1)
     return datetime.today()
-def prev_month(d):
-    first = d.replace(day=1)
-    prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    return month
-def next_month(d):
-    days_in_month = calendar.monthrange(d.year, d.month)[1]
-    last = d.replace(day=days_in_month)
-    next_month = last + timedelta(days=1)
-    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
-    return month
-def event(request, event_id=None):
-    instance = Events()
+def event(request,event_id=None):
+    instance=Event()
     if event_id:
-        instance = get_object_or_404(Events, pk=event_id)
+        instance = get_object_or_404(Event, pk=event_id)
     else:
-        instance = Events()
-    form = EventForm(request.POST or None, instance=instance)
-    if request.POST and form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('events:calendar'))
-    return render(request, 'event_planner.html', {'form': form})
+        instance =Event()
+    form = EventRegistrationForm(instance=instance)  #init
+    if request.method == "POST":
+        form = EventRegistrationForm(request.POST,request.FILES)   
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('event:calendar'))
+        else:
+            print(form.errors)
 
-
-# Create your views here.
+    else:
+        form=EventRegistrationForm()
+    return render(request,"register_event.html",{"form":form})
+def event_list(request):
+    events=Event.objects.all()
+    return render(request,"event_list.html",{ "events":events})
+    

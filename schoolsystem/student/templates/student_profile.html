@@ -7,11 +7,50 @@
     <title>Document</title>
 </head>
 <body>
-    <h4>{{student.first_name}}</h4>
-    <h4>{{student.last_name}}</h4>
-    <h4>{{student.age}}</h4>
-    <h4>{{student.phone_number}}</h4>
-    <h4>{{student.email}}</h4>
+  <style>
+      body{
+        background-color: rgb(213, 198, 213);
+      
+      }
+    .profile{
+        background-color: purple;
+        padding: 100px;
+        color: white;  
+        width: 30%;
+        margin-left: 450px;
+        border-radius: 20px;
+        height: fit-content;
+    }
+    .trainer{
+     border-radius: 150px;
+     margin-left: 120px;
+     width: 50%;
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+    .content{
+        font-size: larger;
+    }
+  </style>
+  
+  <h1>-Our Team-</h1>
+       
+    <div class="profile">
+        <td ><img class="trainer" src=" {{trainer.image.url}}" /></td>
+
+    <div class="content">
+    <h4> Name: {{student.first_name}} {{trainer.last_name}}</h4>
+    <h4>Phone Number: {{student.phone_number}}</h4>
+    <h4>Email: {{student.email}}</h4>
+    <h4>Class: {{student.class_name}}</h4>
+    <h4>Country: {{student.country}}</h4>
+</div>
+
+</div>
+       
+   
 
 </body>
 </html>

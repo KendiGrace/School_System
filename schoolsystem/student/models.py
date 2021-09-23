@@ -3,8 +3,6 @@ from django.forms.fields import CharField
 from django.forms.widgets import NumberInput
 from django.http import response
 # Create your models here.
-
-
 class Student(models.Model):
     # image = models.ImageField(upload_to="images")
     first_name = models.CharField(max_length=10)
